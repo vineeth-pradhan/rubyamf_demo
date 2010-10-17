@@ -1,0 +1,3410 @@
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (62.7ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (188.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (15.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMessages (20101017063838)
+  [4;36;1mSQL (62.7ms)[0m   [0;1mCREATE TABLE `messages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `text` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (31.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101017063838')[0m
+  [4;36;1mSQL (15.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `messages`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `messages`[0m
+DEPRECATION WARNING: unverifiable_types is deprecated and has no effect. (called from D:/FlexAndRailsPractice/rubyamf/rubyamf/vendor/plugins/rubyamf_plugin/app/mime_type.rb:3)
+  [4;36;1mSQL (172.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (15.7ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 13:52:59) [POST]
+Sending data 
+Completed in 47ms (View: 0, DB: 188) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 13:52:59) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 13:52:59) [POST]
+Completed in 188ms (DB: 0) | 200 [http://localhostmessages/send]
+Sending data 
+Completed in 329ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 13:53:00) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 13:53:00) [POST]
+  [4;36;1mMessage Load (485.6ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Rendering template within layouts/messages
+Rendering messages/index
+Completed in 564ms (View: 47, DB: 486) | 200 OK [http://localhostmessages/index]
+Sending data 
+Completed in 642ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 13:53:22) [POST]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-10-17 13:53:22) [POST]
+  Parameters: {0=>{"text"=>"Hii there"}}
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+
+NoMethodError (undefined method `stringify_keys!' for "Hii there":String):
+  app/controllers/messages_controller.rb:46:in `new'
+  app/controllers/messages_controller.rb:46:in `create'
+  vendor/plugins/rubyamf_plugin/app/actions.rb:155:in `invoke'
+  vendor/plugins/rubyamf_plugin/app/actions.rb:89:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:68:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:68:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:65:in `each'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:65:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:63:in `upto'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:63:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:12:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:11:in `each'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:11:in `run'
+  vendor/plugins/rubyamf_plugin/app/rails_gateway.rb:28:in `service'
+  app/controllers/rubyamf_controller.rb:16:in `gateway'
+  c:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (94.0ms)
+Rendered rescues/_request_and_response (47.0ms)
+Rendering rescues/layout (internal_server_error)
+Sending data 
+Completed in 439ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/create]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 13:59:03) [POST]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-10-17 13:59:03) [POST]
+  Parameters: {0=>{"text"=>"Hii there"}}
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (62.7ms)[0m   [0;1mINSERT INTO `messages` (`created_at`, `updated_at`, `text`) VALUES('2010-10-17 08:29:03', '2010-10-17 08:29:03', 'Hii there')[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mCOMMIT[0m
+
+NameError (uninitialized constant Mime::AML):
+  app/controllers/messages_controller.rb:55:in `create'
+  app/controllers/messages_controller.rb:51:in `create'
+  vendor/plugins/rubyamf_plugin/app/actions.rb:155:in `invoke'
+  vendor/plugins/rubyamf_plugin/app/actions.rb:89:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:68:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:68:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:65:in `each'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:65:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:63:in `upto'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:63:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:12:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:11:in `each'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:11:in `run'
+  vendor/plugins/rubyamf_plugin/app/rails_gateway.rb:28:in `service'
+  app/controllers/rubyamf_controller.rb:16:in `gateway'
+  c:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (219.3ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+Sending data 
+Completed in 407ms (View: 0, DB: 125) | 200 OK [http://localhostmessages/create]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 13:59:12) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 13:59:12) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Rendering template within layouts/messages
+Rendering messages/index
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 580ms (View: 580, DB: 0) | 200 OK [http://localhostmessages/index]
+Sending data 
+Completed in 627ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 13:59:15) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 13:59:16) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Rendering template within layouts/messages
+Rendering messages/index
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 16ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+Sending data 
+Completed in 63ms (View: 16, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 13:59:17) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 13:59:17) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Rendering template within layouts/messages
+Rendering messages/index
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhostmessages/index]
+Sending data 
+Completed in 63ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 13:59:18) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 13:59:18) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Rendering template within layouts/messages
+Rendering messages/index
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhostmessages/index]
+Sending data 
+Completed in 63ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 13:59:19) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 13:59:19) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Rendering template within layouts/messages
+Rendering messages/index
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhostmessages/index]
+Sending data 
+Completed in 63ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 13:59:19) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 13:59:19) [POST]
+  [4;36;1mMessage Load (15.7ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Rendering template within layouts/messages
+Rendering messages/index
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 94ms (View: 47, DB: 16) | 200 OK [http://localhostmessages/index]
+Sending data 
+Completed in 141ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 13:59:21) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 13:59:21) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 13:59:21) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+Sending data 
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 13:59:24) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 13:59:24) [POST]
+  [4;36;1mMessage Load (15.7ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Rendering template within layouts/messages
+Rendering messages/index
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 31ms (View: 16, DB: 16) | 200 OK [http://localhostmessages/index]
+Sending data 
+Completed in 78ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:00:40) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:00:40) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Rendering template within layouts/messages
+Rendering messages/index
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 31ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+Sending data 
+Completed in 63ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:00:41) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:00:41) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Rendering template within layouts/messages
+Rendering messages/index
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhostmessages/index]
+Sending data 
+Completed in 63ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:01:07) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:01:07) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 63ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:01:27) [POST]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-10-17 14:01:27) [POST]
+  Parameters: {0=>{"text"=>"Works finally"}}
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (15.7ms)[0m   [0;1mINSERT INTO `messages` (`created_at`, `updated_at`, `text`) VALUES('2010-10-17 08:31:27', '2010-10-17 08:31:27', 'Works finally')[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mCOMMIT[0m
+
+NameError (uninitialized constant Mime::AML):
+  app/controllers/messages_controller.rb:55:in `create'
+  app/controllers/messages_controller.rb:51:in `create'
+  vendor/plugins/rubyamf_plugin/app/actions.rb:155:in `invoke'
+  vendor/plugins/rubyamf_plugin/app/actions.rb:89:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:68:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:68:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:65:in `each'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:65:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:63:in `upto'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:63:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:12:in `run'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:11:in `each'
+  vendor/plugins/rubyamf_plugin/app/filters.rb:11:in `run'
+  vendor/plugins/rubyamf_plugin/app/rails_gateway.rb:28:in `service'
+  app/controllers/rubyamf_controller.rb:16:in `gateway'
+  c:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (250.6ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 454ms (DB: 0) | 200 [http://localhostmessages/create]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:01:28) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (15.7ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:02:05) [POST]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-10-17 14:02:05) [POST]
+  Parameters: {0=>{"text"=>"Works finally"}}
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.0ms)[0m   [0mINSERT INTO `messages` (`created_at`, `updated_at`, `text`) VALUES('2010-10-17 08:32:05', '2010-10-17 08:32:05', 'Works finally')[0m
+  [4;36;1mSQL (47.0ms)[0m   [0;1mCOMMIT[0m
+Completed in 63ms (DB: 78) | 200 [http://localhostmessages/create]
+Sending data 
+Completed in 110ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/create]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:02:07) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:02:07) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:02:17) [POST]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-10-17 14:02:17) [POST]
+  Parameters: {0=>{"text"=>"Good stuff"}}
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.0ms)[0m   [0mINSERT INTO `messages` (`created_at`, `updated_at`, `text`) VALUES('2010-10-17 08:32:17', '2010-10-17 08:32:17', 'Good stuff')[0m
+  [4;36;1mSQL (47.0ms)[0m   [0;1mCOMMIT[0m
+Completed in 78ms (DB: 63) | 200 [http://localhostmessages/create]
+Sending data 
+Completed in 110ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/create]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:02:27) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:02:27) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:03:01) [POST]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-10-17 14:03:01) [POST]
+  Parameters: {0=>{"text"=>"Good stuff"}}
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.0ms)[0m   [0mINSERT INTO `messages` (`created_at`, `updated_at`, `text`) VALUES('2010-10-17 08:33:01', '2010-10-17 08:33:01', 'Good stuff')[0m
+  [4;36;1mSQL (47.0ms)[0m   [0;1mCOMMIT[0m
+Completed in 63ms (DB: 63) | 200 [http://localhostmessages/create]
+Sending data 
+Completed in 94ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/create]
+  [4;35;1mSQL (156.6ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (31.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:23:32) [POST]
+Sending data 
+Completed in 266ms (View: 47, DB: 188) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:23:33) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 14:23:33) [POST]
+Completed in 31ms (DB: 0) | 200 [http://localhostmessages/send]
+Sending data 
+Completed in 1613ms (View: 16, DB: 0) | 200 OK [http://localhostmessages/send]
+  [4;35;1mSQL (15.7ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:23:35) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:23:35) [POST]
+  [4;35;1mMessage Load (203.6ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 251ms (DB: 219) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (109.6ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 407ms (View: 16, DB: 110) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (15.7ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:24:00) [POST]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-10-17 14:24:00) [POST]
+  Parameters: {0=>{"text"=>nil}}
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mSQL (31.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (188.0ms)[0m   [0mINSERT INTO `messages` (`created_at`, `updated_at`, `text`) VALUES('2010-10-17 08:54:00', '2010-10-17 08:54:00', NULL)[0m
+  [4;36;1mSQL (62.7ms)[0m   [0;1mCOMMIT[0m
+Completed in 313ms (DB: 298) | 200 [http://localhostmessages/create]
+Sending data 
+Completed in 345ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/create]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:24:19) [POST]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-10-17 14:24:19) [POST]
+  Parameters: {0=>{"text"=>"Hii"}}
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.0ms)[0m   [0mINSERT INTO `messages` (`created_at`, `updated_at`, `text`) VALUES('2010-10-17 08:54:19', '2010-10-17 08:54:19', 'Hii')[0m
+  [4;36;1mSQL (47.0ms)[0m   [0;1mCOMMIT[0m
+Completed in 63ms (DB: 47) | 200 [http://localhostmessages/create]
+Sending data 
+Completed in 94ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/create]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:24:27) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:24:27) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:29:40) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:29:40) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 14:29:40) [POST]
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 110ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:29:40) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:29:41) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:29:41) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 94ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:29:54) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:29:55) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 157ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:29:55) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:29:55) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 63ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:29:56) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:29:56) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:34:42) [POST]
+Sending data 
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:34:43) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 14:34:43) [POST]
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 63ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:34:43) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:35:03) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:35:03) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 14:35:03) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+Completed in 63ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:35:03) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:35:04) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:35:04) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:36:04) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:36:04) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 14:36:04) [POST]
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 63ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:36:04) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:36:08) [POST]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-10-17 14:36:08) [POST]
+  Parameters: {0=>{"text"=>"Hii "}}
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.0ms)[0m   [0;1mINSERT INTO `messages` (`created_at`, `updated_at`, `text`) VALUES('2010-10-17 09:06:08', '2010-10-17 09:06:08', 'Hii ')[0m
+  [4;35;1mSQL (31.3ms)[0m   [0mCOMMIT[0m
+Completed in 63ms (DB: 31) | 200 [http://localhostmessages/create]
+Sending data 
+Completed in 110ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/create]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:36:32) [POST]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-10-17 14:36:32) [POST]
+  Parameters: {0=>{"text"=>"So it works without services-config.xml!! Yee Haww "}}
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.0ms)[0m   [0;1mINSERT INTO `messages` (`created_at`, `updated_at`, `text`) VALUES('2010-10-17 09:06:32', '2010-10-17 09:06:32', 'So it works without services-config.xml!! Yee Haww ')[0m
+  [4;35;1mSQL (31.3ms)[0m   [0mCOMMIT[0m
+Completed in 94ms (DB: 31) | 200 [http://localhostmessages/create]
+Sending data 
+Completed in 125ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/create]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:36:48) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:36:48) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 31ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 78ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:40:13) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:40:13) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:42:51) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:42:51) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:47:03) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:47:03) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 14:47:03) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:47:03) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:47:04) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:47:04) [POST]
+  [4;35;1mMessage Load (15.7ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 16) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:49:25) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:49:25) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 14:49:25) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 63ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:49:25) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:49:27) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:49:27) [POST]
+  [4;36;1mMessage Load (15.7ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 16) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (15.7ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2011-03-17 14:52:16) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 16) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2011-03-17 14:52:16) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2011-03-17 14:52:16) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mMessage Columns (47.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 251ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2011-03-17 14:52:17) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2011-03-17 14:52:18) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2011-03-17 14:52:18) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 94ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 282ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2011-03-17 14:52:22) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2011-03-17 14:52:22) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 63ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 251ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2011-03-17 14:52:51) [POST]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2011-03-17 14:52:51) [POST]
+  Parameters: {0=>{"text"=>nil}}
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMessage Create (0.0ms)[0m   [0mINSERT INTO `messages` (`created_at`, `updated_at`, `text`) VALUES('2011-03-17 09:22:51', '2011-03-17 09:22:51', NULL)[0m
+  [4;36;1mSQL (47.0ms)[0m   [0;1mCOMMIT[0m
+Completed in 235ms (DB: 63) | 200 [http://localhostmessages/create]
+Sending data 
+Completed in 282ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/create]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2011-03-17 14:52:59) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2011-03-17 14:52:59) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 63ms (View: 16, DB: 0) | 200 OK [http://localhostmessages/index]
+DEPRECATION WARNING: unverifiable_types is deprecated and has no effect. (called from D:/FlexAndRailsPractice/rubyamf/rubyamf/vendor/plugins/rubyamf_plugin/app/mime_type.rb:3)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2011-03-17 14:54:09) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2011-03-17 14:54:09) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 31ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 110ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:55:46) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:55:46) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 14:55:46) [POST]
+Completed in 141ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 219ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:55:46) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:55:48) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:55:48) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 78ms (View: 16, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:56:20) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:56:21) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 14:56:21) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:56:21) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:56:23) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:56:23) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:56:39) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:56:39) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 14:56:39) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mMessage Columns (31.3ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 94ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:56:39) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+DEPRECATION WARNING: unverifiable_types is deprecated and has no effect. (called from D:/FlexAndRailsPractice/rubyamf/rubyamf/vendor/plugins/rubyamf_plugin/app/mime_type.rb:3)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:57:02) [POST]
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:57:02) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 14:57:02) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 14:57:33) [POST]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-10-17 14:57:33) [POST]
+  Parameters: {0=>{"text"=>"Heiil"}}
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.0ms)[0m   [0;1mINSERT INTO `messages` (`created_at`, `updated_at`, `text`) VALUES('2010-10-17 09:27:33', '2010-10-17 09:27:33', 'Heiil')[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mCOMMIT[0m
+Completed in 63ms (DB: 47) | 200 [http://localhostmessages/create]
+Sending data 
+Completed in 110ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/create]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:00:58) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:00:58) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:00:58) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+Sending data 
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:00:59) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:00:59) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:01:03) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:01:03) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:01:04) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:01:05) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:01:05) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:01:05) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:01:09) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:01:09) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 63ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:01:10) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:01:10) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 78ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:01:11) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:01:11) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 63ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:01:14) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:01:14) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:01:14) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:01:14) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:01:18) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:01:18) [POST]
+  [4;36;1mMessage Load (15.7ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 16) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:02:49) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:02:49) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:03:14) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:03:14) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:03:14) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:03:14) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:03:18) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:03:18) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:03:18) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:03:18) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:03:32) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:03:32) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:03:32) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:03:32) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:04:14) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:04:14) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:04:14) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:04:14) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:04:15) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:04:15) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:04:48) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:04:48) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:04:48) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:04:48) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:05:16) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:05:16) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:05:16) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:05:16) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:05:49) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:05:49) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:05:49) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:05:50) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:06:13) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:06:13) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:06:13) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+Completed in 110ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:06:13) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:06:17) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:06:17) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:06:17) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:06:17) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:06:36) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:06:36) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:06:36) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:06:36) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:08:01) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:08:02) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:08:02) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:08:02) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:08:03) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:08:03) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:08:22) [POST]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-10-17 15:08:22) [POST]
+  Parameters: {0=>{"text"=>"Hiii"}}
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.0ms)[0m   [0;1mINSERT INTO `messages` (`created_at`, `updated_at`, `text`) VALUES('2010-10-17 09:38:22', '2010-10-17 09:38:22', 'Hiii')[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mCOMMIT[0m
+Completed in 63ms (DB: 47) | 200 [http://localhostmessages/create]
+Sending data 
+Completed in 94ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/create]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:08:30) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:08:30) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:09:44) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:09:44) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:09:44) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:09:44) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:09:45) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:09:45) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:10:12) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:10:12) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:10:12) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:10:12) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:10:13) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:10:13) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:10:17) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:10:17) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:10:17) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:10:17) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:10:18) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:10:18) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+DEPRECATION WARNING: unverifiable_types is deprecated and has no effect. (called from D:/FlexAndRailsPractice/rubyamf/rubyamf/vendor/plugins/rubyamf_plugin/app/mime_type.rb:3)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:11:07) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:11:07) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:11:07) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:11:09) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:11:09) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:11:14) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:11:14) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+DEPRECATION WARNING: unverifiable_types is deprecated and has no effect. (called from D:/FlexAndRailsPractice/rubyamf/rubyamf/vendor/plugins/rubyamf_plugin/app/mime_type.rb:3)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:11:29) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:11:29) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 31ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 110ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:13:31) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:13:31) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:13:31) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 63ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:13:31) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:14:17) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:14:17) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:14:17) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:14:17) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:14:27) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:14:27) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:14:27) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:14:27) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:14:28) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:14:28) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:14:35) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:14:35) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:15:17) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:15:17) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:15:17) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:15:17) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:15:17) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:15:17) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 110ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:15:49) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:15:49) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:15:49) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:15:49) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:15:50) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:15:50) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 78ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:16:01) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:16:01) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:16:01) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:16:01) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:16:02) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:16:02) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 78ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:17:22) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:17:22) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:17:22) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 63ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:17:22) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:17:23) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:17:23) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 110ms (View: 16, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:17:31) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:17:31) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 31ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 110ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:18:05) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:18:05) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:18:05) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mMessage Columns (47.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 94ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:18:06) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:18:06) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:18:06) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 94ms (View: 16, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:19:20) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:19:20) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:19:20) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 63ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:19:20) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:19:22) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:19:22) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 31ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 125ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:20:53) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:20:53) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:20:53) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 63ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:20:53) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:20:54) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:20:54) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 78ms (View: 16, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:20:59) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:20:59) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 31ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 78ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:21:04) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:21:04) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:21:04) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:21:04) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:21:05) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:21:05) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 63ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:25:45) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:25:45) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:25:45) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:25:45) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:25:46) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:25:46) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:25:51) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:25:51) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:25:51) [POST]
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:25:51) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:25:57) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:25:57) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:25:57) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:25:57) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:25:59) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:25:59) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+DEPRECATION WARNING: unverifiable_types is deprecated and has no effect. (called from D:/FlexAndRailsPractice/rubyamf/rubyamf/vendor/plugins/rubyamf_plugin/app/mime_type.rb:3)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2011-03-17 15:26:50) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2011-03-17 15:26:50) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 31ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 110ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2011-03-17 15:27:12) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2011-03-17 15:27:12) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2011-03-17 15:27:12) [POST]
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 110ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2011-03-17 15:27:13) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2011-03-17 15:27:14) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2011-03-17 15:27:14) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2011-03-17 15:27:22) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2011-03-17 15:27:22) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2011-03-17 15:27:22) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2011-03-17 15:27:22) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2011-03-17 15:27:23) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2011-03-17 15:27:23) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 63ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:27:50) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:27:50) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 15:27:50) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:27:50) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:27:51) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:27:51) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:27:52) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:27:52) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:27:52) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:27:52) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:27:52) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:27:52) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:00) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:00) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:00) [POST]
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 94ms (View: 16, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:02) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:02) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 78ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:02) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:02) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 94ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:02) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:02) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 172ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:03) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:03) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 31ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 63ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:03) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:03) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 63ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+DEPRECATION WARNING: unverifiable_types is deprecated and has no effect. (called from D:/FlexAndRailsPractice/rubyamf/rubyamf/vendor/plugins/rubyamf_plugin/app/mime_type.rb:3)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:34) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:35) [POST]
+  [4;36;1mMessage Load (15.7ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 31ms (DB: 16) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 110ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:40) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:40) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 63ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:42) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:42) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:43) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:43) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 63ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:43) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:43) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:43) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:43) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:44) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:44) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:45) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:45) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:46) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:46) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:47) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:47) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 94ms (View: 16, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:48) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:48) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 78ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:49) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:49) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 63ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:50) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:50) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 63ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:57) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:57) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:28:59) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:28:59) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:29:00) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:29:00) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:29:02) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:29:02) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:29:02) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:29:02) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:29:05) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:29:05) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:29:07) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:29:07) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 31ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 94ms (View: 16, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:29:55) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:29:55) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:29:55) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:30:00) [POST]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-10-17 15:30:00) [POST]
+  Parameters: {0=>{"text"=>"akasfafa"}}
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.0ms)[0m   [0;1mINSERT INTO `messages` (`created_at`, `updated_at`, `text`) VALUES('2010-10-17 10:00:00', '2010-10-17 10:00:00', 'akasfafa')[0m
+  [4;35;1mSQL (31.3ms)[0m   [0mCOMMIT[0m
+Completed in 47ms (DB: 31) | 200 [http://localhostmessages/create]
+Sending data 
+Completed in 78ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/create]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:30:10) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:30:10) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:31:30) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:31:30) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:31:30) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:32:03) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:32:03) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:32:03) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:32:37) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:32:37) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:32:37) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 141ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:32:59) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:32:59) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:32:59) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:33:02) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:33:02) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:33:12) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:33:13) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:33:13) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:33:51) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:33:51) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:33:51) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:34:43) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:34:43) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:34:43) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:34:50) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:34:50) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:34:50) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:35:08) [POST]
+Sending data 
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:35:08) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:35:08) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 78ms (View: 16, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:35:50) [POST]
+Sending data 
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:35:50) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:35:50) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 63ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:36:12) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:36:13) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:36:13) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:36:21) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:36:21) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 110ms (View: 16, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:42:48) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:42:48) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 188ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 235ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:42:55) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:42:56) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:42:56) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:44:58) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:44:59) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:44:59) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 63ms (View: 16, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:45:03) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:45:04) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (15.7ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 94ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:45:16) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:45:16) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:45:16) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:45:18) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:45:18) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:45:25) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:45:25) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:45:25) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:45:25) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:45:25) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 125ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:53:59) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:53:59) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:53:59) [POST]
+  [4;36;1mMessage Load (31.3ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 31ms (DB: 31) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 78ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:54:29) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:54:29) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 15:54:29) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:55:22) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 15:55:23) [POST]
+
+
+Processing MessagesController#create (for 127.0.0.1 at 2010-10-17 15:55:23) [POST]
+  Parameters: {0=>{"text"=>nil}}
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mMessage Create (0.0ms)[0m   [0;1mINSERT INTO `messages` (`created_at`, `updated_at`, `text`) VALUES('2010-10-17 10:25:23', '2010-10-17 10:25:23', NULL)[0m
+  [4;35;1mSQL (31.3ms)[0m   [0mCOMMIT[0m
+Completed in 47ms (DB: 47) | 200 [http://localhostmessages/create]
+Sending data 
+Completed in 78ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/create]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 16:07:45) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 16:07:45) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 16:07:45) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (31.3ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 78ms (View: 0, DB: 31) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 16:07:53) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 16:07:54) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 16:08:06) [POST]
+Sending data 
+Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 16:08:07) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 16:08:07) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 16:08:58) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 16:08:58) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 16:08:58) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 63ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 16:09:03) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 16:09:03) [POST]
+  [4;36;1mMessage Load (0.0ms)[0m   [0;1mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;35;1mMessage Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 47ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 16:13:41) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 16:13:41) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 16:13:41) [POST]
+Completed in 94ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Completed in 172ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 16:13:42) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 16:13:54) [POST]
+Sending data 
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 16:13:54) [POST]
+
+
+Processing MessagesController#send (for 127.0.0.1 at 2010-10-17 16:13:54) [POST]
+Completed in 0ms (DB: 0) | 200 [http://localhostmessages/send]
+Completed in 47ms (DB: 0) | 200 [http://localhostmessages/send]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 16:13:54) [POST]
+Sending data 
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/rubyamf/gateway]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 16:17:08) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 16:17:08) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (15.7ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 157ms (View: 0, DB: 16) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 16:22:04) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 16:22:04) [POST]
+  [4;35;1mMessage Load (31.3ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 47ms (DB: 31) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 94ms (View: 0, DB: 0) | 200 OK [http://localhostmessages/index]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing RubyamfController#gateway (for 127.0.0.1 at 2010-10-17 16:22:08) [POST]
+
+
+Processing MessagesController#index (for 127.0.0.1 at 2010-10-17 16:22:08) [POST]
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM `messages` [0m
+Completed in 16ms (DB: 0) | 200 [http://localhostmessages/index]
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+Sending data 
+Completed in 78ms (View: 16, DB: 0) | 200 OK [http://localhostmessages/index]
